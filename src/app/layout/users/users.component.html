@@ -1,0 +1,13 @@
+<div [@routerTransition]>
+    <h2 class="text-muted">کاربران: </h2>
+    <hr>
+    <app-tables
+            (onEdit)="loadUserDetails($event)"
+            [delete]="true"
+            [edit]="true"
+            [hasImg]="true"
+            [headers]="usersHeaders"
+            tableTitle=" کاربران"
+            [tableData]="userList"
+    ></app-tables>
+</div>

@@ -1,0 +1,36 @@
+<div [@routerTransition]>
+    <h2 class="text-muted">دوره ها</h2>
+    <hr>
+
+    <div class="card-body">
+        <ul class="timeline">
+            <li *ngFor="let road of roadMapList;let i=index" [ngClass]="{'timeline-inverted':(i%2)!==0}">
+                <div class="timeline-badge" [ngClass]="{'bg-success':road.isActive}">
+                    <i class="fa road-map-icon" [ngClass]="road.roadmapHeadImage"></i>
+                </div>
+                <div class="timeline-panel">
+                    <img [src]="road.logo" class="full-width"/>
+                    <div class="timeline-heading">
+                        <h4 class="timeline-title">{{road.title}}</h4>
+                        <h5>{{road.level}}</h5>
+                        <p><small class="text-muted"> <i class="fa fa-clock-o"></i> زمان اعتبار :  {{road.deadline}}
+                        </small>
+                        </p>
+                    </div>
+                    <div class="timeline-body">
+                        <p>{{road.description}}</p>
+                    </div>
+                    <div class="footer-btn">
+                        <button class="btn btn-primary" (click)="loadExamList(road.id)" >
+                            آزمون ها
+                        </button>
+                        <button class="btn btn-success">
+                            <!--                        [routerLink]="'road-map-details/'+road.id"-->
+                            نمایش
+                        </button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

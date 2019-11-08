@@ -1,0 +1,127 @@
+.rtl {
+  font-family: "IRANSans", Helvetica, Arial, Verdana, Tahoma, sans-serif;
+  table{
+    direction: rtl;
+    text-align: right;
+  }
+  app-header{
+    nav{
+      direction: rtl;
+    }
+  }
+
+  .timeline{
+    direction: rtl;
+    text-align: right;
+  }
+  .sidebar {
+    left: auto !important;
+    right: 0 !important;
+
+    > ul.list-group {
+      padding: 0;
+    }
+
+    .list-group {
+      a.list-group-item {
+        .fa {
+          margin-left: 10px;
+          margin-top: 3px;
+          margin-right: 0px !important;
+        }
+      }
+    }
+  }
+
+  .main-container {
+    margin-left: 0 !important;
+    margin-right: 235px;
+  }
+  .main-container.collapsed{
+    margin-right: 60px!important;
+  }
+  /*rtl dropdown items correction*/
+  .dropdown-menu {
+    text-align: right;
+  }
+
+  * {
+    //direction: rtl;
+
+  }
+
+  p, .card-header {
+    text-align: right;
+  }
+
+  .navbar * {
+    direction: ltr;
+  }
+
+  .sidebar * {
+    direction: ltr;
+    float: right;
+
+  }
+
+  app-stat {
+    direction: rtl !important;
+  }
+
+  .navbar .dropdown-menu {
+    text-align: left;
+  }
+
+  .breadcrumb {
+    direction: ltr;
+    justify-content: flex-end;
+
+    * {
+      direction: ltr;
+    }
+  }
+
+  .datepicker-input {
+    direction: ltr;
+
+    .dropdown-menu {
+      direction: ltr;
+
+      * {
+        direction: ltr;
+      }
+    }
+  }
+
+  .input-group {
+    direction: ltr;
+  }
+
+  .text-muted {
+    direction: rtl;
+    text-align: right;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .rtl {
+    .navbar-brand {
+      direction: ltr;
+    }
+
+    .sidebar {
+      right: -235px !important;
+    }
+
+    .main-container {
+      margin-right: 0;
+    }
+
+    &.push-right {
+      .sidebar {
+        left: auto !important;
+        right: 0 !important;
+      }
+    }
+  }
+}

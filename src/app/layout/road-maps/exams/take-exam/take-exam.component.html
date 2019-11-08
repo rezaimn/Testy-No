@@ -1,0 +1,67 @@
+<div [@routerTransition]>
+    <div class="card">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <h2 class="text-muted"> {{selectedExam?.title}}</h2>
+                <br>
+                <p>مدت زمان پاسخگویی: <strong>{{selectedExam?.bestTimeToAnswer}}</strong></p>
+                <p>سطح آزمون: <strong>{{selectedExam?.level}}</strong></p>
+                <p>امتیاز: <strong>{{selectedExam?.score}}</strong></p>
+                <p>توضیحات: <strong>{{selectedExam?.description}}</strong></p>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <img [src]="selectedExam?.logo" alt="لوگوی آزمون" class="exam-logo">
+            </div>
+
+        </div>
+    </div>
+    <div class="card">
+        <i class="fa fa-2x fa-clock-o"> <span class="timer">{{ timer}} </span></i>
+        <p><strong>{{currentQuestion?.currentId}}- </strong>{{currentQuestion?.body}}</p>
+        <img *ngIf="currentQuestion?.bodyImage" [src]="currentQuestion?.bodyImage" alt="question-img" class="bodyImage"/>
+        <br>
+        <div class="row" *ngIf="currentQuestion?.type!=='multi'">
+            <div class="form-check" *ngFor="let choice of currentQuestion?.choices;let i=index">
+                <input class="form-check-input" type="radio" name="single" [id]="'radio-'+i" [value]="choice.id"
+                       [(ngModel)]="answer[0]" (ngModelChange)="setResponse(choice.id,answer[0])">
+                <label class="form-check-label" [for]="'radio-'+i">
+                    {{choice.body}}
+                </label>
+                <img *ngIf="choice.bodyImage" [src]="choice.bodyImage" alt="question-img" class="body-image"/>
+            </div>
+        </div>
+        <div class="row" *ngIf="currentQuestion?.type==='multi'">
+            <div class="form-check" *ngFor="let choice of currentQuestion?.choices;let i=index">
+                <input class="form-check-input" type="checkbox" [name]="'multi-'+i" [id]="'check-'+i"
+                       [value]="choice.id" [(ngModel)]="answer[i]" (ngModelChange)="setResponse(choice.id,answer[i])">
+                <label class="form-check-label" [for]="'check-'+i">
+                    {{choice.body}}
+                </label>
+                <img *ngIf="choice.bodyImage" [src]="choice.bodyImage" alt="question-img" class="body-image"/>
+            </div>
+        </div>
+        <br>
+        <div class="card-footer">
+            <button
+                    *ngIf="selectedExam?.id!==-1 && selectedExam?.id!==-3 && selectedExam?.id!==-5"
+                    class="btn btn-success float-right"
+                    (click)="answerTheQuestion(currentQuestion)"
+                    [disabled]="selectedExam?.id===-2 || selectedExam?.id===-4"
+            >
+                پاسخ
+            </button>
+            <button
+                    *ngIf="selectedExam?.id!==-1 && selectedExam?.id!==-3 && selectedExam?.id!==-5"
+                    class="btn btn-primary float-right"
+                    (click)="nextQuestion()"
+                    [disabled]="selectedExam?.id===-2 || selectedExam?.id===-4"
+            >بعدی
+            </button>
+            <button *ngIf="selectedExam?.id===-1 || selectedExam?.id===-3 || selectedExam?.id===-5" class="btn btn-primary float-right" (click)="back()">بازگشت</button>
+
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,89 @@
+<!--avatar: "http://5.152.193.34:9035/Pics/prs.jpg"-->
+<!--average: 14.56-->
+<!--description: "توضحباتتستی"-->
+<!--field: "فناوری اطلاعات"-->
+<!--id: 2-->
+<!--isActive: true-->
+<!--lastExamDate: "1398/05/12 08:23:00"-->
+<!--level: "کارشناس"-->
+<!--maxScore: 18-->
+<!--minScore: 12.04-->
+<!--name: "کاربر تستی 110"-->
+<!--numberOfExams: 9-->
+<!--numberOfRoadMaps: 4-->
+<!--post: "مدیر واحد"-->
+<!--registeryDate: "1396/11/26 18:54:30"-->
+
+<div class="card" *ngIf="userDetails">
+    <div class="card-header">
+        <div class="card-title">
+            {{userDetails.name}}
+        </div>
+        <div class="card-content">
+            <div class="row">
+                <div class="col-12">
+                    <img [src]="userDetails.avatar" alt="user avatar" height="۱۲۰">
+                </div>
+                <hr>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="name">نام: </label>
+                        <input type="text" class="form-control" id="name" placeholder="نام" name="name"
+                               [(ngModel)]="userDetails.name">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="level">سطح: </label>
+                        <input type="text" class="form-control" id="level" name="level" placeholder="سطح"
+                               [(ngModel)]="userDetails.level">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="field">رشته: </label>
+                        <input type="text" class="form-control" id="field" name="field" placeholder="رشته"
+                               [(ngModel)]="userDetails.field">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="post">پست: </label>
+                        <input type="text" class="form-control" id="post" name="post" placeholder="پست"
+                               [(ngModel)]="userDetails.post">
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="average">معدل: </label>
+                        <input type="فثطف" class="form-control" id="average" name="average" placeholder="معدل"
+                               [(ngModel)]="userDetails.field">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="isActive">وضعیت: </label>
+                        <input type="فثطف" class="form-control" id="isActive" name="isActive" placeholder="وضعیت"
+                               [(ngModel)]="userDetails.isActive">
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="numberOfRoadMaps">تعداد دوره ها: </label>
+                        <input type="number" class="form-control" id="numberOfRoadMaps" name="numberOfRoadMaps"
+                               placeholder="تعداد دوره ها" [(ngModel)]="userDetails.numberOfRoadMaps">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="numberOfExams">تعداد آزمون ها: </label>
+                        <input type="text" class="form-control" id="numberOfExams" name="numberOfExams"
+                               placeholder="تعداد آزمون ها" [(ngModel)]="userDetails.numberOfExams">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

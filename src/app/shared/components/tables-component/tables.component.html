@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-3">
+            <div class="card-header">
+                {{tableTitle}}
+            </div>
+            <div class="card-body table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>ردیف</th>
+                        <th *ngFor="let header of headers">
+                            {{header.value}}
+                        </th>
+                        <th *ngIf="hasImg">تصویر</th>
+                        <th *ngIf="edit || exam || delete">عملیات</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let item of tableData;let i=index">
+                        <th scope="row">{{i + 1}}</th>
+                        <td *ngFor="let head of headers" >
+                            <i *ngIf="(head.key==='isActive'||head.key==='isPassed')"  class="fa fa-2x"
+                               [ngClass]="(head.key==='isActive'||head.key==='isPassed')&&{'green-color fa-check':item[head.key],'red-color fa-close':!item[head.key]}">
+
+                            </i>
+                            <p *ngIf="!(head.key==='isActive'||head.key==='isPassed')" >{{item[head.key]}}</p>
+                        </td>
+                        <td *ngIf="hasImg">
+                            <img *ngIf="item.logo" [src]="item.logo"  class="table-img"/>
+                        </td>
+                        <td *ngIf="edit || exam || delete">
+                            <li *ngIf="exam" class=" operation-icon fa fa-2x fa-clock-o success-color"
+                                (click)="onExamSet(item.id)" data-toggle="tooltip" data-placement="top"
+                                title="انجام آزمون"></li>
+                            <li *ngIf="edit" class="operation-icon fa fa-2x fa-edit primary-color"
+                                (click)="onEditSet(item.id)" data-toggle="tooltip" data-placement="top"
+                                title="ویرایش"></li>
+                            <li *ngIf="delete" class=" operation-icon fa fa-2x fa-trash-o danger-color"
+                                (click)="onDeleteSet(item.id)" data-toggle="tooltip" data-placement="top"
+                                title="حذف"></li>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

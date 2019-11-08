@@ -1,0 +1,30 @@
+.card{
+  padding: 24px;
+  direction: rtl;
+}
+.exam-logo{
+  width: 100%;
+}
+.form-check{
+  width: 100%;
+  direction: rtl;
+  float: right;
+  label{
+    text-align: right;
+    width: 100%;
+    margin-right: 20px;
+  }
+}
+.row{
+  margin: 0;
+}
+
+.timer{
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.body-image{
+  max-width: 80%;
+}

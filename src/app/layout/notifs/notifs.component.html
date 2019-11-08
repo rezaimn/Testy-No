@@ -1,0 +1,10 @@
+<div [@routerTransition]>
+    <h2 class="text-muted">پیام ها: </h2>
+    <hr>
+    <app-tables
+            (onEdit)="loadUserDetails($event)"
+            tableTitle="پیام ها"
+            [headers]="notifsHeaders"
+            [tableData]="notifList"
+    ></app-tables>
+</div>

@@ -1,0 +1,14 @@
+<div [@routerTransition]>
+    <h2 class="text-muted">آزمون ها</h2>
+    <hr>
+    <app-tables
+            (onExam)="loadExamDetails($event)"
+            [delete]="true"
+            [edit]="true"
+            [exam]="true"
+            [hasImg]="true"
+            [headers]="examsHeaders"
+            tableTitle=" آزمون ها"
+            [tableData]="examList"
+    ></app-tables>
+</div>

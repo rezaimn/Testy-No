@@ -1,0 +1,76 @@
+<div [@routerTransition]>
+    <h2 class="text-muted">{{'Dashboard'|translate}}</h2>
+    <hr>
+
+
+    <div class="row">
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'danger'" [icon]="'fa-support'" [count]="2"
+                      [label]="'تعداد آزمون های رد شده'"></app-stat>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'warning'" [icon]="'fa-tasks'" [count]="dashboardData?.numberOfRoadMaps"
+                      [label]="'تعداد مسیر راه موجود'"></app-stat>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'primary'" [icon]="'fa-file-text'" [count]="dashboardData?.numberOfOpenExams"
+                      [label]="'تعداد آزمون های باز'"></app-stat>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'success'" [icon]="'fa-check-circle-o'" [count]="dashboardData?.numberOfPassedExams"
+                      [label]="'تعداد آزمون های پاس شده'"></app-stat>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="card mb-3">
+                <div class="card-header">
+                    نمودار سرعت پیشرفت
+                </div>
+                <div class="card-body">
+                    <canvas
+                            baseChart [datasets]="advancementSpeedBarChart"
+                            [labels]="dashboardData?.advancementSpeed?.lables"
+                            [options]="barChartOptions" chartType="bar"
+                            [colors]="advancementSpeedColor"
+                    >
+                    </canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="card mb-3">
+                <div class="card-header">
+                    تاریخچه آزمون ها
+                </div>
+                <div class="card-body">
+                    <canvas
+                            baseChart [datasets]="examHistoriesBarChart"
+                            [labels]="dashboardData?.examHistories?.lables"
+                            [options]="barChartOptions" chartType="bar"
+                            [colors]="examHistoriesColor"
+                    >
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-tables tableTitle=" آزمون های باز"
+                [tableData]="dashboardData?.openExams"
+                [hasImg]="true"
+                [headers]="openExamHeaders"
+    ></app-tables>
+    <app-tables
+            tableTitle="  آزمون های پایان یافته"
+            [tableData]="dashboardData?.passedExams"
+            [hasImg]="true"
+            [headers]="finishedExamHeaders"
+    ></app-tables>
+    <app-tables
+            tableTitle="آزمون های نقشه راه"
+            [tableData]="dashboardData?.roadMaps"
+            [hasImg]="true"
+            [headers]="roadMapExamHeaders"
+    ></app-tables>
+</div>
