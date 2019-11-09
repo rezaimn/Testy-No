@@ -12,7 +12,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ##screenshots
 
-![alt text](./src/screen-records/1.gif) 
+![alt text](./screen-records/testy-no.gif) 
 
 ### Introduction
 
